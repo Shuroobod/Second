@@ -45,35 +45,38 @@ kal();
 состоянием.Чтобы предотвратить бесконечную рекурсию, вы можете использовать оператор if...else (или аналогичный подход), 
 когда одна ветвь выполняет рекурсивный вызов, а другая нет.
   Например:
-  function recurse() {
-    if(condition) {
+  
+     function recurse() {
+      if(condition) {
         recurse();
-    }
-    else {
+     }
+      else {
         // stop calling recurse()
-    }
-}
+     }
+   }
 
-recurse();
+   recurse();
 
 С помощью рекурсии мы можем легко решать сложные задачи, пример этого мы можем видеть в числах Фибоначчи.
-function fibonacci(num) {
-    if(num < 2) {
+
+   function fibonacci(num) {
+     if(num < 2) {
         return num;
-    }
-    else {
+     }
+     else {
         return fibonacci(num-1) + fibonacci(num - 2);
+     }
     }
-}
 
 
 Когда вы вызываете функцию factorial() с положительным целым числом, она будет рекурсивно вызывать себя, уменьшая число.
 Давайте посмотрим на факториал числа, как он работает с рекурсией и чем он отличается от цикла:
-factorial(4) returns 4 * factorial(3)
-factorial(3) returns 4 * 3 * factorial(2)
-factorial(2) returns 4 * 3 * 2 * factorial(1)
-factorial(1) returns 4 * 3 * 2 * 1 * factorial(0)
-factorial(0) returns 4 * 3 * 2 * 1 * 1
+
+   factorial(4) returns 4 * factorial(3)
+   factorial(3) returns 4 * 3 * factorial(2)
+   factorial(2) returns 4 * 3 * 2 * factorial(1)
+   factorial(1) returns 4 * 3 * 2 * 1 * factorial(0)
+   factorial(0) returns 4 * 3 * 2 * 1 * 1
 
 ### Closure in js
 Замыкание — это комбинация функции, связанной вместе (приложенной) со ссылками на
@@ -90,15 +93,17 @@ factorial(0) returns 4 * 3 * 2 * 1 * 1
 Для непосвященных это определение может показаться просто жаргоном!
 
 Например:
-function outer() {
-   var b = 10;
-   function inner() {
+
+    function outer() {
+    var b = 10;
+    function inner() {
         
          var a = 20; 
          console.log(a+b);
     }
    return inner;
 }
+
 
 Здесь у нас есть две функции:
 внешняя функция, внешняя, которая имеет переменную b и возвращает внутреннюю функцию
